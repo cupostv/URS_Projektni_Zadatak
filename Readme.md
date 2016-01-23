@@ -2,7 +2,7 @@
 
 Autor: Mladen Stupar
 
-Tekst zadatka:
+###Tekst zadatka:
 * Napisati funkciju koja prima jedan prirodan broj kao parametar i na standardni izlaz ispisuje sve
 prirodne brojeve manje od tog broja čiji je zapis palindrom.
 Funkcija prima i parametar koji govori u kom brojnom sistemu treba da bude palindrom,
