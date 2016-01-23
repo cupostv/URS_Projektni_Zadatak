@@ -6,8 +6,11 @@ FLAGS = -o
 
 SRCS = src/main/main.c src/palindrome/palindrome.c
 
-all: app
+all: clean app
 
 app:
 
 	$(CC) $(SRCS) $(FLAGS) app
+
+clean:
+	rm app
