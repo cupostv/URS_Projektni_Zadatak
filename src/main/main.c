@@ -34,5 +34,16 @@
 
 int32_t main (int32_t argc, uint8_t* argv[])
 {
+	int32_t number;
+	int8_t numberSystem;
+
+	printf("Unesite prvi argument funkcije:\nbroj = ");
+	scanf ("%"SCNd32, &number);
+
+	printf("Unesite drugi argument funkcije:\nbrojni sistem = ");
+	scanf ("%"SCNd8, &numberSystem);
+
+	palindrome(number, numberSystem);
+
 	return NO_ERROR;
 }
