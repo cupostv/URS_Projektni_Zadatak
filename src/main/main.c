@@ -19,9 +19,13 @@
 		U datoteci main.c će biti glavni program u kom će biti prezentovano rješenje zadatka.
 		Implementacija funkcije počinje definisanjem svih nevalidnih stanja koja se mogu dogoditi.
 		Nakon kontrolisanja nevalidnih parametara funkcije, polazi se od najmanjeg prirodnog broja, pa
-		do broja koji je unijet kao prvi argument funkcije, te se za svaki broj računa (odgovarajućim algoritmom)
-		njegov ekvivalent u brojnom sistemu koji je proslijeđen kao drugi argument funkcije, te se za takav broj
-		provjerava da li je palindrom. Ukoliko jeste, ispisuje se na standardni izlaz (u odgovarajućem formatu).
+		do broja koji je unijet kao prvi argument funkcije, te se za svaki broj provjerava da li je palindrom
+		u odgovarajućem brojnom sistemu. Ako jeste, ispisuje se na standardni izlaz. Algoritam provjeravanja
+		da li je neki broj palindrom u nekom brojnom sistemu se realizuje na osnovu činjenice da se svaki broj
+		može predstaviti kao cifra*baza^0 + cifra*baza^1 + cifra*baza^2 + cifra*baza^3... Ako za neki broj dobijamo
+		cifre (počevši od najlakše ka najtežoj), obrnut broj (od broja za koji se provjerava da li je palindrom) se
+		dobija: obrnut_broj = obrnut_broj*baza + cifra. Na kraju, ako su obrnut broj i broj za koji se provjerava da 
+		li je palindrom, jednaki, broj je palindrom.
 
 	Napomena:
 		Za prevođenje i pokretanje programa je potrebno iz komandne linije
@@ -32,17 +36,18 @@
 
 #include "../palindrome/palindrome.h"
 
-#define ASSERT(x, y) 											\
-		if (x == ERROR_NOT_INTEGER || x == ERROR_NUMBER_SYSTEM) \
-		{														\
-			printf("%s\n", y);									\
-			return ERROR;										\
-		}														\
+#define ASSERT(x, y) 										\
+		if (x == ERROR_NOT_INTEGER || x == ERROR_BASE)		\
+		{													\
+			printf("%s\n", y);								\
+			return ERROR;									\
+		}													\
 
 int32_t main (int32_t argc, uint8_t* argv[])
 {
 	int32_t number;
-	int8_t numberSystem;
+	int8_t base;
+	ErrorCode error;
 
 	printf("\nDozvoljeni brojni sistemi su:\n\tOktalni (8)\n\tDekadni (10)\n\tHeksadecimalni (16)\n\n");
 
@@ -50,9 +55,10 @@ int32_t main (int32_t argc, uint8_t* argv[])
 	scanf ("%"SCNd32, &number);
 
 	printf("Unesite drugi argument funkcije:\nbrojni sistem = ");
-	scanf ("%"SCNd8, &numberSystem);
+	scanf ("%"SCNd8, &base);
 
-	ASSERT(palindrome(number, numberSystem), "Greška pri unosu parametara funkcije");
+	error = palindrome(number, base);
+	ASSERT(error, "Greška pri unosu parametara funkcije");
 
 	return NO_ERROR;
 }
