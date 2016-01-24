@@ -32,10 +32,19 @@
 
 #include "../palindrome/palindrome.h"
 
+#define ASSERT(x, y) 											\
+		if (x == ERROR_NOT_INTEGER || x == ERROR_NUMBER_SYSTEM) \
+		{														\
+			printf("%s\n", y);									\
+			return ERROR;										\
+		}														\
+
 int32_t main (int32_t argc, uint8_t* argv[])
 {
 	int32_t number;
 	int8_t numberSystem;
+
+	printf("\nDozvoljeni brojni sistemi su:\n\tOktalni (8)\n\tDekadni (10)\n\tHeksadecimalni (16)\n\n");
 
 	printf("Unesite prvi argument funkcije:\nbroj = ");
 	scanf ("%"SCNd32, &number);
@@ -43,7 +52,7 @@ int32_t main (int32_t argc, uint8_t* argv[])
 	printf("Unesite drugi argument funkcije:\nbrojni sistem = ");
 	scanf ("%"SCNd8, &numberSystem);
 
-	palindrome(number, numberSystem);
+	ASSERT(palindrome(number, numberSystem), "Greška pri unosu parametara funkcije");
 
 	return NO_ERROR;
 }

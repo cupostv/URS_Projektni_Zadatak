@@ -8,9 +8,9 @@
 typedef enum _ErrorCode
 {
 	NO_ERROR = 0,
-	ERROR,
 	ERROR_NOT_INTEGER,
-	ERROR_NUMBER_SYSTEM
+	ERROR_NUMBER_SYSTEM,
+	ERROR = -1
 } ErrorCode;
 
 ErrorCode palindrome (int32_t number, int8_t numberSystem);
