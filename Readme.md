@@ -1,8 +1,10 @@
 ## URS - Projektni zadatak
 
-Autor: Mladen Stupar
+###Autor
 
-###Tekst zadatka:
+Mladen Stupar
+
+###Tekst zadatka
 
 Napisati funkciju koja prima jedan prirodan broj kao parametar i na standardni izlaz ispisuje sve
 prirodne brojeve manje od tog broja čiji je zapis palindrom.
