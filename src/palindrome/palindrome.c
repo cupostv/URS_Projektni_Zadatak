@@ -19,7 +19,7 @@ uint8_t isPalindrome(int32_t number, int8_t base)
 	return startNumber == reversed;
 }
 
-ErrorCode palindrome (int32_t number, int8_t base)
+ErrorCode palindrome(int32_t number, int8_t base)
 {
 	CHECK_ARGS(number, base);
 

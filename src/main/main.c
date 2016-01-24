@@ -43,7 +43,7 @@
 			return ERROR;									\
 		}													\
 
-int32_t main (int32_t argc, uint8_t* argv[])
+int32_t main(int32_t argc, uint8_t* argv[])
 {
 	int32_t number;
 	int8_t base;
@@ -52,10 +52,10 @@ int32_t main (int32_t argc, uint8_t* argv[])
 	printf("\nDozvoljeni brojni sistemi su:\n\tOktalni (8)\n\tDekadni (10)\n\tHeksadecimalni (16)\n\n");
 
 	printf("Unesite prvi argument funkcije:\nbroj = ");
-	scanf ("%"SCNd32, &number);
+	scanf("%"SCNd32, &number);
 
 	printf("Unesite drugi argument funkcije:\nbrojni sistem = ");
-	scanf ("%"SCNd8, &base);
+	scanf("%"SCNd8, &base);
 
 	error = palindrome(number, base);
 	ASSERT(error, "Greška pri unosu parametara funkcije");
